@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batik Nusantara - Batik Premium Berkualitas Tinggi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-brown: #3B2A1A;
+            --cream: #F8F1E5;
+            --gold: #D4AF37;
+            --light-cream: #FBF8F3;
+            --text-dark: #2D2D2D;
+            --text-light: #666666;
+            --border-color: #E5DDD0;
+            --shadow: 0 4px 15px rgba(59, 42, 26, 0.08);
+            --shadow-hover: 0 8px 25px rgba(59, 42, 26, 0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-brown);
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            max-width: 100%;
+        }
+
+        .navbar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .navbar-logo span {
+            color: var(--cream);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link:hover,
+        .nav-item.active > .nav-link {
+            color: var(--gold);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-hover);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            z-index: 1001;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light-cream);
+            color: var(--gold);
+            border-left-color: var(--gold);
+            padding-left: 25px;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%);
+            color: white;
+            padding: 100px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: var(--cream);
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        /* ==================== SECTION STYLES ==================== */
+        section {
+            padding: 80px 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 44px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        /* ==================== ARTICLE / BLOG SECTION ==================== */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #4A3428, var(--dark-brown));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 40px;
+        }
+
+        .article-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .article-category {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark-brown);
+        }
+
+        .article-date {
+            color: var(--text-light);
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .article-excerpt {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1; /* Mendorong tombol ke bawah agar sejajar */
+        }
+
+        /* PERBAIKAN UTAMA: Fokus klik Baca Selengkapnya */
+        .read-more {
+            color: var(--dark-brown);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            width: fit-content;
+            transition: color 0.3s ease, gap 0.3s ease;
+        }
+
+        /* Efek interaktif saat tombol didekati kursor */
+        .read-more:hover {
+            color: var(--gold);
+            gap: 10px; /* Membuat ikon panah bergeser ke kanan saat di-hover */
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .navbar-container { padding: 15px 20px; }
+            section { padding: 50px 20px; }
+            .hero h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span>Batik</span> Nusantara
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item">
+                    <a href="#shop" class="nav-link">Shop ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Batik Pria</a>
+                        <a href="#" class="dropdown-item">Batik Wanita</a>
+                        <a href="#" class="dropdown-item">Kain Batik</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1>Pesona <span>Batik</span> Warisan Budaya</h1>
+        </div>
+    </header>
+
+    <section id="blog">
+        <div class="section-title">
+            <h2>Artikel & Blog Terbaru</h2>
+            <p>Eksplorasi cerita, filosofi, dan perkembangan tren dunia batik modern.</p>
+        </div>
+
+        <div class="articles-grid">
+            
+            <div class="article-card">
+                <div class="article-image">🎨</div>
+                <div class="article-content">
+                    <div class="article-category">Budaya</div>
+                    <h3 class="article-title">Filosofi Mendalam di Balik Motif Batik Parang</h3>
+                    <div class="article-date">12 Juni 2026</div>
+                    <p class="article-excerpt">Motif Parang merupakan salah satu motif batik tertua di Indonesia. Kain ini memiliki makna jalinan yang tidak pernah putus...</p>
+                    <a href="blog/filosofi-batik-parang.html" class="read-more">Baca Selengkapnya <span>→</span></a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-image">🧵</div>
+                <div class="article-content">
+                    <div class="article-category">Tren Modern</div>
+                    <h3 class="article-title">Cara Padupadan Batik Tulis untuk Gaya Casual</h3>
+                    <div class="article-date">05 Juni 2026</div>
+                    <p class="article-excerpt">Siapa bilang batik tulis hanya untuk acara formal? Dengan kombinasi yang tepat, Anda bisa tampil kasual dan modis sehari-hari...</p>
+                    <a href="blog/batik-casual-style.html" class="read-more">Baca Selengkapnya <span>→</span></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

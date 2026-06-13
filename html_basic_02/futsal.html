@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRMA 24 KEDIRI | Website Ekstrakurikuler</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div class="loader-screen" id="loader">
+    <div class="loader-box">
+      <div class="loader-circle"></div>
+      <p>Loading SRMA Excellence...</p>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container nav-wrapper">
+      <div class="logo">
+        <div class="logo-badge">24</div>
+        <span>SRMA 24 KEDIRI</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">Profil</a>
+        <a href="#kategori">Kategori</a>
+        <a href="#ekskul">Ekskul</a>
+        <a href="#prestasi">Prestasi</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#daftar">Pendaftaran</a>
+      </div>
+
+      <button class="nav-btn" onclick="document.querySelector('#daftar').scrollIntoView({behavior:'smooth'})">
+        Gabung Sekarang
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home">
+    <div class="container hero-grid reveal">
+      <div class="hero-text">
+        <h1>SRMA 24 KEDIRI<br><span>Extracurricular Excellence</span></h1>
+        <p>
+          Wadah pengembangan karakter, prestasi, dan bakat siswa melalui ekstrakurikuler
+          profesional yang dirancang untuk menciptakan generasi unggul dan berdaya saing global.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.querySelector('#ekskul').scrollIntoView({behavior:'smooth'})">
+            Join Our Club
+          </button>
+          <button class="btn-outline" onclick="document.querySelector('#prestasi').scrollIntoView({behavior:'smooth'})">
+            View Achievements
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Highlight Program</h3>
+        <ul>
+          <li><span>Ekskul Aktif</span> <b>15+</b></li>
+          <li><span>Prestasi Nasional</span> <b>35+</b></li>
+          <li><span>Pelatih Profesional</span> <b>20+</b></li>
+          <li><span>Galeri Kegiatan</span> <b>200+</b></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <h2>Tentang <span>SRMA 24 KEDIRI</span></h2>
+        <p>
+          SRMA 24 KEDIRI adalah sekolah unggulan yang berkomitmen membentuk siswa berkarakter,
+          kreatif, disiplin, serta mampu bersaing secara akademik dan non-akademik.
+          Program ekstrakurikuler kami dirancang dengan pembinaan terstruktur, fasilitas terbaik,
+          serta pelatih profesional.
+        </p>
+
+        <div class="about-boxes">
+          <div class="mini-box">
+            <h4>Visi</h4>
+            <p>Mewujudkan siswa unggul, berprestasi, dan berakhlak mulia.</p>
+          </div>
+
+          <div class="mini-box">
+            <h4>Misi</h4>
+            <p>Mengembangkan bakat melalui kegiatan ekskul profesional dan inovatif.</p>
+          </div>
+
+          <div class="mini-box">
+            <h4>Keunggulan</h4>
+            <p>Pelatih ahli, fasilitas modern, dan pembinaan kompetitif berkelanjutan.</p>
+          </div>
+
+          <div class="mini-box">
+            <h4>Prestasi</h4>
+            <p>Puluhan penghargaan dari tingkat Kabupaten hingga Nasional.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image reveal">
+        <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1400&q=80" alt="School">
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY -->
+  <section id="kategori">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Kategori <span>Ekstrakurikuler</span></h2>
+        <p>
+          Pilih kegiatan terbaik sesuai bakat dan minat. SRMA 24 KEDIRI menyediakan ekskul unggulan
+          dengan program pembinaan yang profesional dan terarah.
+        </p>
+      </div>
+
+      <div class="category-grid reveal">
+        <div class="category-card">
+          <div class="category-icon">🏆</div>
+          <h4>Olahraga</h4>
+          <p>Futsal, basket, voli, atletik, pencak silat.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">🎭</div>
+          <h4>Seni</h4>
+          <p>Tari tradisional, teater, musik, desain.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">📚</div>
+          <h4>Akademik</h4>
+          <p>English club, science club, matematika.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">🕌</div>
+          <h4>Keagamaan</h4>
+          <p>Tahfidz, hadrah, rohis, kajian rutin.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">👑</div>
+          <h4>Organisasi</h4>
+          <p>OSIS, pramuka, PMR, kepemimpinan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRAS -->
+  <section id="ekskul">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Program <span>Ekstrakurikuler</span></h2>
+        <p>
+          Jelajahi program unggulan SRMA 24 KEDIRI. Klik detail untuk melihat jadwal, pembina,
+          tujuan program, dan prestasi yang telah diraih.
+        </p>
+      </div>
+
+      <div class="extras-toolbar reveal">
+        <div class="search-box">
+          🔍
+          <input type="text" id="searchInput" placeholder="Cari ekskul... (contoh: English Club)">
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="Olahraga">Olahraga</button>
+          <button class="filter-btn" data-filter="Seni">Seni</button>
+          <button class="filter-btn" data-filter="Akademik">Akademik</button>
+          <button class="filter-btn" data-filter="Keagamaan">Keagamaan</button>
+          <button class="filter-btn" data-filter="Organisasi">Organisasi</button>
+        </div>
+      </div>
+
+      <div class="extras-grid reveal" id="extrasGrid"></div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="prestasi">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Prestasi <span>Terbaik</span></h2>
+        <p>
+          Prestasi ekstrakurikuler adalah bukti kualitas pembinaan SRMA 24 KEDIRI.
+          Berikut beberapa pencapaian unggulan yang telah diraih siswa.
+        </p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <h4>Juara 1 Lomba Futsal Nasional</h4>
+            <p>Tim futsal SRMA 24 KEDIRI meraih juara pertama dalam kompetisi nasional antar pelajar.</p>
+          </div>
+          <div class="timeline-right">
+            <span>2025</span>
+            <p>Nasional</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <h4>Best Speaker English Debate</h4>
+            <p>Perwakilan English Club meraih penghargaan Best Speaker tingkat Provinsi Jawa Timur.</p>
+          </div>
+          <div class="timeline-right">
+            <span>2024</span>
+            <p>Provinsi</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <h4>Juara 2 Olimpiade Matematika</h4>
+            <p>Tim akademik SRMA 24 KEDIRI memenangkan olimpiade matematika tingkat provinsi.</p>
+          </div>
+          <div class="timeline-right">
+            <span>2024</span>
+            <p>Provinsi</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <h4>Juara 1 Tari Tradisional</h4>
+            <p>Ekskul seni tari SRMA 24 KEDIRI memenangkan lomba budaya antar sekolah.</p>
+          </div>
+          <div class="timeline-right">
+            <span>2023</span>
+            <p>Kabupaten</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="galeri">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Galeri <span>Kegiatan</span></h2>
+        <p>
+          Dokumentasi kegiatan ekstrakurikuler siswa SRMA 24 KEDIRI yang penuh semangat, disiplin,
+          kreativitas, dan prestasi.
+        </p>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1520975693411-7e1a3b0b6a7b?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section id="daftar">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Pendaftaran <span>Online</span></h2>
+        <p>
+          Bergabunglah bersama SRMA 24 KEDIRI untuk membangun prestasi, karakter, serta pengalaman berharga.
+        </p>
+      </div>
+
+      <div class="form-wrapper reveal">
+        <form id="registerForm">
+          <div>
+            <label>Nama Lengkap</label>
+            <input type="text" required placeholder="Masukkan nama lengkap">
+          </div>
+
+          <div>
+            <label>Kelas</label>
+            <input type="text" required placeholder="Contoh: XI IPA 1">
+          </div>
+
+          <div>
+            <label>NISN</label>
+            <input type="number" required placeholder="Masukkan NISN">
+          </div>
+
+          <div>
+            <label>Pilih Ekstrakurikuler</label>
+            <select required>
+              <option value="">-- Pilih Ekskul --</option>
+              <option>Futsal Elite Team</option>
+              <option>Basket Academy</option>
+              <option>English Club</option>
+              <option>Science Club</option>
+              <option>Tahfidz Qur'an</option>
+              <option>Pramuka Leadership</option>
+              <option>Tari Tradisional</option>
+              <option>Band Sekolah</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label>Alasan Bergabung</label>
+            <textarea required placeholder="Tuliskan alasan Anda bergabung..."></textarea>
+          </div>
+
+          <div>
+            <label>No HP Siswa</label>
+            <input type="tel" required placeholder="08xxxxxxxxxx">
+          </div>
+
+          <div>
+            <label>Email Orang Tua</label>
+            <input type="email" required placeholder="contoh@gmail.com">
+          </div>
+
+          <div class="full">
+            <button class="submit-btn" type="submit">Submit Registration</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>SRMA 24 KEDIRI</h3>
+          <p>
+            Website resmi ekstrakurikuler SRMA 24 KEDIRI untuk mencetak generasi unggul,
+            disiplin, berprestasi, dan siap bersaing secara global.
+          </p>
+
+          <div class="social">
+            <a href="#">IG</a>
+            <a href="#">YT</a>
+            <a href="#">FB</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Navigasi</h3>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">Profil Sekolah</a>
+            <a href="#ekskul">Ekskul</a>
+            <a href="#prestasi">Prestasi</a>
+            <a href="#daftar">Pendaftaran</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Kontak Sekolah</h3>
+          <p>📍 Kediri, Jawa Timur</p>
+          <p>📞 (0354) 123-456</p>
+          <p>✉️ info@srma24kediri.sch.id</p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2026 SRMA 24 KEDIRI. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DETAIL -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle">Ekskul Detail</h3>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+      </div>
+
+      <div class="modal-body">
+        <img id="modalImg" src="" alt="Ekskul">
+        <div class="modal-info">
+          <p id="modalDesc"></p>
+          <div class="modal-list">
+            <div id="modalCoach"></div>
+            <div id="modalSchedule"></div>
+            <div id="modalGoal"></div>
+            <div id="modalAchievement"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="cursor-glow"></div>
+</body>
+</html>

@@ -1,0 +1,2414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batik Nusantara - Batik Premium Berkualitas Tinggi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-brown: #3B2A1A;
+            --cream: #F8F1E5;
+            --gold: #D4AF37;
+            --light-cream: #FBF8F3;
+            --text-dark: #2D2D2D;
+            --text-light: #666666;
+            --border-color: #E5DDD0;
+            --shadow: 0 4px 15px rgba(59, 42, 26, 0.08);
+            --shadow-hover: 0 8px 25px rgba(59, 42, 26, 0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-brown);
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            max-width: 100%;
+        }
+
+        .navbar-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .navbar-logo span {
+            color: var(--cream);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-link:hover,
+        .nav-item.active > .nav-link {
+            color: var(--gold);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-hover);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            z-index: 1001;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            padding: 12px 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--light-cream);
+            color: var(--gold);
+            border-left-color: var(--gold);
+            padding-left: 25px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(248, 241, 229, 0.2);
+            border-radius: 50px;
+            padding: 8px 15px;
+            gap: 10px;
+        }
+
+        .search-bar input {
+            background: none;
+            border: none;
+            color: var(--cream);
+            outline: none;
+            width: 150px;
+            font-size: 13px;
+        }
+
+        .search-bar input::placeholder {
+            color: rgba(248, 241, 229, 0.6);
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            color: var(--gold);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navbar-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: var(--cream);
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            color: var(--gold);
+            transform: scale(1.1);
+        }
+
+        .cart-badge,
+        .wishlist-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--gold);
+            color: var(--dark-brown);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--cream);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%);
+            color: white;
+            padding: 100px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            color: var(--cream);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: rgba(248, 241, 229, 0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 40px;
+            border-radius: 50px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        /* ==================== PROMO BANNER ==================== */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--gold) 0%, #C49A1F 100%);
+            padding: 30px;
+            text-align: center;
+            color: var(--dark-brown);
+            margin: 50px;
+            border-radius: 15px;
+            animation: slideIn 0.8s ease;
+        }
+
+        .promo-banner h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .promo-banner p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        /* ==================== SECTION STYLES ==================== */
+        section {
+            padding: 80px 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .section-title h2 {
+            font-size: 44px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        /* ==================== PRODUCT GRID ==================== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gold);
+            color: var(--dark-brown);
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            z-index: 10;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            margin: 10px 0;
+            color: var(--dark-brown);
+        }
+
+        .product-rating {
+            display: flex;
+            gap: 5px;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        .star {
+            color: var(--gold);
+        }
+
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark-brown);
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-cart {
+            flex: 1;
+            padding: 12px;
+            background: var(--dark-brown);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 13px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-cart:hover {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        .btn-wishlist {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .btn-wishlist:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* ==================== CATEGORY SECTION ==================== */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .category-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* ==================== COLLECTION SECTION ==================== */
+        .collection-showcase {
+            background: linear-gradient(135deg, rgba(59, 42, 26, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%);
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .collection-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .collection-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .collection-item-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 30px;
+        }
+
+        .collection-item-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .collection-item-info h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .collection-item-info p {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        /* ==================== TESTIMONIAL SECTION ==================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--gold);
+        }
+
+        .testimonial-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .testimonial-rating {
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-brown);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-role {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* ==================== ARTICLE SECTION ==================== */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background: #f0f0f0;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 25px;
+        }
+
+        .article-category {
+            color: var(--gold);
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark-brown);
+        }
+
+        .article-date {
+            color: var(--text-light);
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .article-excerpt {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        /* ==================== CUSTOM ORDER SECTION ==================== */
+        .custom-order-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .custom-order-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .custom-order-content p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .custom-features {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .custom-features li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .custom-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .custom-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .custom-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 40px;
+        }
+
+        /* ==================== STEP SECTION ==================== */
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--dark-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .step-card p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* ==================== CONTACT FORM ==================== */
+        .contact-form {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark-brown);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--dark-brown);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-submit:hover {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        /* ==================== MAP SECTION ==================== */
+        .map-container {
+            margin-top: 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark-brown);
+            color: var(--cream);
+            padding: 60px 50px 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .social-link:hover {
+            background: var(--gold);
+            color: var(--dark-brown);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(248, 241, 229, 0.7);
+            font-size: 13px;
+        }
+
+        /* ==================== FLOATING BUTTON ==================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .navbar-container {
+                padding: 15px 20px;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .navbar-logo {
+                font-size: 22px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--dark-brown);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+                gap: 10px;
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 0;
+                visibility: hidden;
+                height: 0;
+                transform: none;
+                box-shadow: none;
+                background: rgba(0,0,0,0.1);
+                margin-top: 0;
+            }
+
+            .nav-item.active .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                height: auto;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+                min-height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 20px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .custom-order-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .custom-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .footer-content {
+                gap: 25px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-container {
+                padding: 12px 15px;
+            }
+
+            .search-bar {
+                display: none;
+            }
+
+            .navbar-icons {
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .product-image {
+                height: 200px;
+            }
+
+            .promo-banner {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .promo-banner h3 {
+                font-size: 24px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span>Batik</span> Nusantara
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#shop" class="nav-link">Shop ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Batik Pria</a>
+                        <a href="#" class="dropdown-item">Batik Wanita</a>
+                        <a href="#" class="dropdown-item">Batik Couple</a>
+                        <a href="#" class="dropdown-item">Batik Anak</a>
+                        <a href="#" class="dropdown-item">Kain Batik</a>
+                        <a href="#" class="dropdown-item">Batik Modern</a>
+                        <a href="#" class="dropdown-item">Batik Tradisional</a>
+                        <a href="#" class="dropdown-item">⭐ Batik Limited Edition</a>
+                        <a href="#" class="dropdown-item">Aksesoris Batik</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#collections" class="nav-link">Koleksi ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">New Arrival</a>
+                        <a href="#" class="dropdown-item">Best Seller</a>
+                        <a href="#" class="dropdown-item">Premium Collection</a>
+                        <a href="#" class="dropdown-item">Exclusive Motif</a>
+                        <a href="#" class="dropdown-item">Koleksi Lebaran</a>
+                        <a href="#" class="dropdown-item">Koleksi Kantor</a>
+                        <a href="#" class="dropdown-item">Koleksi Pernikahan</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#promo" class="nav-link">Promo</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#custom" class="nav-link">Custom Order</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#ordering" class="nav-link">Cara Pemesanan ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Cara Order</a>
+                        <a href="#" class="dropdown-item">Metode Pembayaran</a>
+                        <a href="#" class="dropdown-item">Pengiriman & Ongkir</a>
+                        <a href="#" class="dropdown-item">Tracking Pesanan</a>
+                        <a href="#" class="dropdown-item">Return / Refund</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#education" class="nav-link">Edukasi Batik ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Sejarah Batik Nusantara</a>
+                        <a href="#" class="dropdown-item">Makna Motif Batik</a>
+                        <a href="#" class="dropdown-item">Jenis-jenis Batik</a>
+                        <a href="#" class="dropdown-item">Cara Perawatan Batik</a>
+                        <a href="#" class="dropdown-item">Tips Styling Batik Modern</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link">Galeri</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#blog" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#location" class="nav-link">Lokasi</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Kontak</a>
+                </li>
+            </ul>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Cari produk...">
+                <button>🔍</button>
+            </div>
+
+            <div class="navbar-icons">
+                <button class="icon-btn">
+                    ♡
+                    <span class="wishlist-badge">3</span>
+                </button>
+                <button class="icon-btn">
+                    🛒
+                    <span class="cart-badge">2</span>
+                </button>
+                <button class="icon-btn">👤</button>
+            </div>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Batik Khas <span>Nusantara</span></h1>
+            <h1 style="font-size: 36px; margin-top: -10px; color: var(--gold);">Elegan & Berkualitas Tinggi</h1>
+            <p>Koleksi batik premium dengan desain modern yang memadukan tradisi dan gaya kontemporer untuk melengkapi setiap penampilan Anda</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Belanja Sekarang</button>
+                <button class="btn btn-secondary">Lihat Koleksi</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROMO BANNER ==================== -->
+    <div class="promo-banner">
+        <h3>⚡ FLASH SALE - Diskon hingga 50%</h3>
+        <p>Penawaran terbatas untuk koleksi pilihan terbaik kami. Jangan lewatkan kesempatan emas ini!</p>
+        <button class="btn btn-secondary">Lihat Promo</button>
+    </div>
+
+    <!-- ==================== BEST SELLER SECTION ==================== -->
+    <section id="shop">
+        <div class="section-title">
+            <h2>Produk Terlaris</h2>
+            <p>Pilihan batik premium yang paling dicintai pelanggan kami</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1598084847220-8e1f3c4d0f3d?w=400&h=400&fit=crop" alt="Batik Pria Premium">
+                    <span class="product-badge">-25%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Pria</div>
+                    <h3 class="product-name">Kemeja Batik Pria Klasik</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(124 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 350.000</div>
+                            <div class="original-price">Rp 465.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1591587273521-8755266591db?w=400&h=400&fit=crop" alt="Batik Wanita Elegan">
+                    <span class="product-badge">-30%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Wanita</div>
+                    <h3 class="product-name">Dress Batik Wanita Mewah</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(98 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 450.000</div>
+                            <div class="original-price">Rp 640.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1552326881-5fafe8c9ef14?w=400&h=400&fit=crop" alt="Batik Couple">
+                    <span class="product-badge">NEW</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Couple</div>
+                    <h3 class="product-name">Couple Set Batik Modern</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(156 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 800.000</div>
+                            <div class="original-price">Rp 1.000.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=400&fit=crop" alt="Kain Batik Premium">
+                    <span class="product-badge">-20%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Kain Batik</div>
+                    <h3 class="product-name">Kain Batik Tulis Premium 2.5m</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★☆</span>
+                        <span>(87 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 580.000</div>
+                            <div class="original-price">Rp 725.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1595882645565-e0e99805a886?w=400&h=400&fit=crop" alt="Batik Anak">
+                    <span class="product-badge">-15%</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Anak</div>
+                    <h3 class="product-name">Batik Anak Lucu dan Nyaman</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(92 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 220.000</div>
+                            <div class="original-price">Rp 260.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=400&h=400&fit=crop" alt="Batik Modern">
+                    <span class="product-badge">⭐ LIMITED</span>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Modern</div>
+                    <h3 class="product-name">Batik Kontemporer Limited Edition</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(201 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 750.000</div>
+                            <div class="original-price">Rp 950.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1493514789560-586cb221d2d7?w=400&h=400&fit=crop" alt="Aksesoris Batik">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Aksesoris</div>
+                    <h3 class="product-name">Dompet Batik Tradisional</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(65 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 150.000</div>
+                            <div class="original-price">Rp 200.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=400&h=400&fit=crop" alt="Batik Tradisional">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Tradisional</div>
+                    <h3 class="product-name">Kebaya Batik Tradisional Asli</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(143 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 650.000</div>
+                            <div class="original-price">Rp 850.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 9 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1596522354195-e4aa9a73e652?w=400&h=400&fit=crop" alt="Batik Pria Casual">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Pria</div>
+                    <h3 class="product-name">Kemeja Batik Kasual Stylish</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(178 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 380.000</div>
+                            <div class="original-price">Rp 500.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 10 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1589463168239-1c64e71ae664?w=400&h=400&fit=crop" alt="Batik Wanita Casual">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Wanita</div>
+                    <h3 class="product-name">Blouse Batik Wanita Modern</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(134 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 320.000</div>
+                            <div class="original-price">Rp 425.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 11 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop" alt="Aksesoris Batik">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Aksesoris</div>
+                    <h3 class="product-name">Sapu Tangan Batik Premium</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★☆</span>
+                        <span>(56 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 85.000</div>
+                            <div class="original-price">Rp 120.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 12 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1606762175192-9e2ec8dac5b5?w=400&h=400&fit=crop" alt="Batik Couple Elegan">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">Batik Couple</div>
+                    <h3 class="product-name">Couple Batik Pernikahan Premium</h3>
+                    <div class="product-rating">
+                        <span class="star">★★★★★</span>
+                        <span>(189 ulasan)</span>
+                    </div>
+                    <div class="product-price">
+                        <div>
+                            <div class="price">Rp 950.000</div>
+                            <div class="original-price">Rp 1.300.000</div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-cart">Keranjang</button>
+                        <button class="btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KATEGORI SECTION ==================== -->
+    <section style="background: linear-gradient(135deg, rgba(59, 42, 26, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%); padding-top: 80px;">
+        <div class="section-title">
+            <h2>Kategori Produk</h2>
+            <p>Temukan produk batik sesuai dengan kebutuhan Anda</p>
+        </div>
+
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-icon">👨</div>
+                <h3>Batik Pria</h3>
+                <p>Koleksi kemeja dan pakaian batik untuk pria modern</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">👩</div>
+                <h3>Batik Wanita</h3>
+                <p>Dress, blouse, dan kebaya batik yang elegan</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">👫</div>
+                <h3>Batik Couple</h3>
+                <p>Pasangan batik yang sempurna untuk momen spesial</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">👶</div>
+                <h3>Batik Anak</h3>
+                <p>Pakaian batik nyaman dan lucu untuk anak-anak</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">📦</div>
+                <h3>Kain Batik</h3>
+                <p>Kain batik asli untuk dijahit sesuai keinginan Anda</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">✨</div>
+                <h3>Aksesori Batik</h3>
+                <p>Dompet, tas, dan aksesori batik yang stylish</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KOLEKSI SECTION ==================== -->
+    <section id="collections">
+        <div class="section-title">
+            <h2>Koleksi Spesial</h2>
+            <p>Jelajahi koleksi eksklusif kami untuk setiap momen</p>
+        </div>
+
+        <div class="collection-showcase">
+            <div class="collection-grid">
+                <div class="collection-item">
+                    <div class="collection-item-image">
+                        ✨ NEW
+                    </div>
+                    <div class="collection-item-info">
+                        <h3>New Arrival</h3>
+                        <p>Produk terbaru setiap minggu</p>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-item-image">
+                        ⭐ TOP
+                    </div>
+                    <div class="collection-item-info">
+                        <h3>Best Seller</h3>
+                        <p>Produk paling laris di pasaran</p>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-item-image">
+                        👑 VIP
+                    </div>
+                    <div class="collection-item-info">
+                        <h3>Premium Collection</h3>
+                        <p>Koleksi kelas premium terbaik</p>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-item-image">
+                        🎨 ART
+                    </div>
+                    <div class="collection-item-info">
+                        <h3>Exclusive Motif</h3>
+                        <p>Motif eksklusif dan langka</p>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-item-image">
+                        🌙 LEBARAN
+                    </div>
+                    <div class="collection-item-info">
+                        <h3>Koleksi Lebaran</h3>
+                        <p>Batik spesial untuk perayaan Lebaran</p>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-item-image">
+                        💼 OFFICE
+                    </div>
+                    <div class="collection-item-info">
+                        <h3>Koleksi Kantor</h3>
+                        <p>Batik profesional untuk lingkungan kerja</p>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-item-image">
+                        💒 WEDDING
+                    </div>
+                    <div class="collection-item-info">
+                        <h3>Koleksi Pernikahan</h3>
+                        <p>Batik mewah untuk momen istimewa</p>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <div class="collection-item-image">
+                        🎁 GIFT
+                    </div>
+                    <div class="collection-item-info">
+                        <h3>Koleksi Gift Box</h3>
+                        <p>Batik kemasan eksklusif untuk hadiah</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROMO SECTION ==================== -->
+    <section id="promo" style="background: linear-gradient(135deg, rgba(59, 42, 26, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%);">
+        <div class="section-title">
+            <h2>Promo & Voucher</h2>
+            <p>Dapatkan diskon menarik setiap hari</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px;">
+            <div class="product-card">
+                <div style="padding: 40px; background: linear-gradient(135deg, var(--gold) 0%, #C49A1F 100%); text-align: center; height: 200px; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="color: var(--dark-brown); font-size: 28px; margin-bottom: 10px;">50% OFF</h3>
+                    <p style="color: var(--dark-brown); margin-bottom: 15px;">Diskon spesial produk pilihan</p>
+                    <p style="color: var(--dark-brown); font-size: 12px;">Berlaku hingga 31 Mei 2026</p>
+                </div>
+                <div class="product-info">
+                    <h3 style="margin: 0;">Flash Sale Pagi</h3>
+                    <p style="color: var(--text-light); font-size: 13px; margin-top: 10px;">Setiap hari jam 08.00-12.00 WIB</p>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Lihat Promo</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div style="padding: 40px; background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%); text-align: center; height: 200px; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="color: var(--gold); font-size: 28px; margin-bottom: 10px;">Gratis Ongkir</h3>
+                    <p style="color: var(--cream); margin-bottom: 15px;">Untuk pembelian minimal</p>
+                    <p style="color: var(--gold); font-size: 12px; font-weight: 600;">Rp 500.000</p>
+                </div>
+                <div class="product-info">
+                    <h3 style="margin: 0;">Voucher Pengiriman</h3>
+                    <p style="color: var(--text-light); font-size: 13px; margin-top: 10px;">Gratis ongkir ke seluruh Indonesia</p>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Daftar Sekarang</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div style="padding: 40px; background: linear-gradient(135deg, #4A3428 0%, var(--dark-brown) 100%); text-align: center; height: 200px; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="color: var(--gold); font-size: 28px; margin-bottom: 10px;">Rp 100.000</h3>
+                    <p style="color: var(--cream); margin-bottom: 15px;">Voucher belanja</p>
+                    <p style="color: var(--gold); font-size: 12px;">Minimum pembelian Rp 300.000</p>
+                </div>
+                <div class="product-info">
+                    <h3 style="margin: 0;">Voucher Member</h3>
+                    <p style="color: var(--text-light); font-size: 13px; margin-top: 10px;">Khusus member setia kami</p>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">Daftar Member</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CUSTOM ORDER SECTION ==================== -->
+    <section id="custom">
+        <div class="section-title">
+            <h2>Custom Order Batik</h2>
+            <p>Buat batik impian Anda dengan design yang unik dan personal</p>
+        </div>
+
+        <div class="custom-order-container">
+            <div class="custom-order-content">
+                <h3>Layanan Custom Batik Premium</h3>
+                <p>Kami menyediakan layanan custom batik dengan desain unik sesuai keinginan Anda. Dari motif tradisional hingga modern, tim desainer kami siap mewujudkan batik impian Anda.</p>
+                
+                <ul class="custom-features">
+                    <li>Konsultasi gratis dengan desainer profesional</li>
+                    <li>Pilihan motif batik tradisional dan modern</li>
+                    <li>Kustomisasi warna sesuai preferensi Anda</li>
+                    <li>Bahan premium berkualitas tinggi</li>
+                    <li>Proses produksi cepat dan berkualitas</li>
+                    <li>Packaging mewah dengan gift box eksklusif</li>
+                    <li>Garansi kepuasan 100% atau uang kembali</li>
+                </ul>
+
+                <button class="btn btn-primary" style="margin-top: 20px;">Pesan via WhatsApp</button>
+            </div>
+
+            <div>
+                <div class="custom-gallery">
+                    <div class="custom-img">🎨</div>
+                    <div class="custom-img">✨</div>
+                    <div class="custom-img">👗</div>
+                    <div class="custom-img">💎</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CARA PEMESANAN SECTION ==================== -->
+    <section id="ordering" style="background: linear-gradient(135deg, rgba(59, 42, 26, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%);">
+        <div class="section-title">
+            <h2>Cara Pemesanan</h2>
+            <p>Proses pembelian yang mudah dan aman</p>
+        </div>
+
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Pilih Produk</h3>
+                <p>Jelajahi koleksi batik kami dan pilih produk favorit Anda. Lihat detail, harga, dan ulasan produk.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Tambah Keranjang</h3>
+                <p>Tambahkan produk pilihan ke keranjang belanja Anda dengan mudah hanya dengan satu klik.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Checkout</h3>
+                <p>Isi data pengiriman dan pilih metode pembayaran yang Anda inginkan dengan aman.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Konfirmasi Pembayaran</h3>
+                <p>Lakukan pembayaran dan tunggu konfirmasi dari tim kami dalam waktu maksimal 2 jam.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <h3>Packaging & Kirim</h3>
+                <p>Produk Anda dikemas dengan rapi dan elegan, kemudian dikirim langsung ke alamat Anda.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <h3>Terima & Nikmati</h3>
+                <p>Terima pesanan Anda dan nikmati batik premium pilihan Anda. Kami siap melayani untuk pesanan berikutnya!</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 60px; background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow);">
+            <h3 style="margin-bottom: 30px; text-align: center; color: var(--dark-brown);">Metode Pembayaran</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                <div style="padding: 20px; border: 1px solid var(--border-color); border-radius: 8px;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💳</div>
+                    <h4 style="margin-bottom: 8px;">Kartu Kredit & Debit</h4>
+                    <p style="font-size: 12px; color: var(--text-light);">Visa, Mastercard, JCB</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid var(--border-color); border-radius: 8px;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🏦</div>
+                    <h4 style="margin-bottom: 8px;">Transfer Bank</h4>
+                    <p style="font-size: 12px; color: var(--text-light);">Semua bank Indonesia</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid var(--border-color); border-radius: 8px;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">📱</div>
+                    <h4 style="margin-bottom: 8px;">E-Wallet</h4>
+                    <p style="font-size: 12px; color: var(--text-light);">GCash, OVO, Dana, GOPAY</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid var(--border-color); border-radius: 8px;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">📦</div>
+                    <h4 style="margin-bottom: 8px;">Cicilan 0%</h4>
+                    <p style="font-size: 12px; color: var(--text-light);">Akulaku, Kredivo, dll</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid var(--border-color); border-radius: 8px;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">🚚</div>
+                    <h4 style="margin-bottom: 8px;">COD</h4>
+                    <p style="font-size: 12px; color: var(--text-light);">Bayar saat barang tiba</p>
+                </div>
+                <div style="padding: 20px; border: 1px solid var(--border-color); border-radius: 8px;">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💬</div>
+                    <h4 style="margin-bottom: 8px;">WhatsApp Payment</h4>
+                    <p style="font-size: 12px; color: var(--text-light);">Chat & transfer langsung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EDUKASI BATIK SECTION ==================== -->
+    <section id="education">
+        <div class="section-title">
+            <h2>Edukasi Batik</h2>
+            <p>Pelajari lebih dalam tentang keindahan dan nilai budaya batik Indonesia</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; margin-top: 50px;">
+            <div>
+                <h3 style="margin-bottom: 20px; color: var(--dark-brown);">Sejarah Batik Nusantara</h3>
+                <p style="color: var(--text-light); line-height: 1.8; margin-bottom: 15px;">Batik adalah seni warisan budaya Indonesia yang telah diakui UNESCO sebagai Masterpiece of Oral and Intangible Heritage of Humanity pada tahun 2009. Seni membatik telah berkembang selama berabad-abad dengan evolusi motif dan teknik yang mencerminkan nilai-nilai budaya lokal.</p>
+                <p style="color: var(--text-light); line-height: 1.8;">Setiap motif batik memiliki makna mendalam yang terhubung dengan filosofi, sejarah, dan kepercayaan masyarakat Indonesia.</p>
+            </div>
+            <div style="background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%); padding: 40px; border-radius: 12px; color: var(--cream); text-align: center; display: flex; align-items: center; justify-content: center; min-height: 300px;">
+                <div>
+                    <div style="font-size: 80px; margin-bottom: 20px;">🎨</div>
+                    <h3 style="color: var(--gold); margin-bottom: 10px;">Warisan Budaya Dunia</h3>
+                    <p>UNESCO Masterpiece 2009</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 60px; background: white; padding: 40px; border-radius: 12px; box-shadow: var(--shadow);">
+            <h3 style="margin-bottom: 30px; text-align: center; color: var(--dark-brown);">Jenis-Jenis Batik Indonesia</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+                <div style="padding: 20px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--dark-brown); margin-bottom: 10px;">Batik Tulis</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Dibuat dengan menulis motif menggunakan canting dan malam (lilin). Proses ini memerlukan keahlian tinggi dan waktu lama, sehingga harganya lebih mahal.</p>
+                </div>
+                <div style="padding: 20px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--dark-brown); margin-bottom: 10px;">Batik Cap</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Menggunakan cap (stempel) tembaga bercorak motif. Lebih cepat diproduksi dibanding batik tulis namun tetap mempertahankan keindahan dan kualitas premium.</p>
+                </div>
+                <div style="padding: 20px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--dark-brown); margin-bottom: 10px;">Batik Kombinasi</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Menggabungkan teknik tulis dan cap untuk menghasilkan motif yang lebih kompleks dan detail dengan proses produksi yang lebih efisien.</p>
+                </div>
+                <div style="padding: 20px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--dark-brown); margin-bottom: 10px;">Batik Printing</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Menggunakan mesin printing untuk hasil yang lebih seragam. Cocok untuk produksi massal dengan harga yang lebih terjangkau.</p>
+                </div>
+                <div style="padding: 20px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--dark-brown); margin-bottom: 10px;">Batik Ecoprint</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Menggunakan bahan-bahan alami dari tumbuhan untuk mewarna kain. Ramah lingkungan dan menghasilkan warna yang unik dan alami.</p>
+                </div>
+                <div style="padding: 20px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--dark-brown); margin-bottom: 10px;">Batik Kontemporer</h4>
+                    <p style="color: var(--text-light); font-size: 14px;">Menggabungkan teknik tradisional dengan desain modern untuk menciptakan batik yang fresh dan relevan dengan tren fashion terkini.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(59, 42, 26, 0.1) 100%); padding: 40px; border-radius: 12px;">
+            <h3 style="margin-bottom: 20px; text-align: center; color: var(--dark-brown);">Tips Merawat Batik</h3>
+            <ul style="list-style: none; margin-top: 20px;">
+                <li style="padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-light);"><span style="position: absolute; left: 0; color: var(--gold); font-weight: 700;">✓</span> Cuci batik dengan air dingin menggunakan deterjen yang lembut atau sabun khusus batik</li>
+                <li style="padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-light);"><span style="position: absolute; left: 0; color: var(--gold); font-weight: 700;">✓</span> Jangan menggunakan pemutih atau bleach yang dapat merusak warna batik</li>
+                <li style="padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-light);"><span style="position: absolute; left: 0; color: var(--gold); font-weight: 700;">✓</span> Peras dengan lembut, jangan diperas terlalu kuat agar warna tidak mudah pudar</li>
+                <li style="padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-light);"><span style="position: absolute; left: 0; color: var(--gold); font-weight: 700;">✓</span> Keringkan di tempat yang sejuk dan tidak terkena sinar matahari langsung</li>
+                <li style="padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-light);"><span style="position: absolute; left: 0; color: var(--gold); font-weight: 700;">✓</span> Setrika dengan suhu rendah atau sedang, hindari suhu panas yang dapat merusak kain</li>
+                <li style="padding: 12px 0; padding-left: 30px; position: relative; color: var(--text-light);"><span style="position: absolute; left: 0; color: var(--gold); font-weight: 700;">✓</span> Simpan di tempat yang kering dan terlindungi dari sinar matahari untuk menjaga warna tetap cerah</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ==================== GALERI SECTION ==================== -->
+    <section id="gallery" style="background: linear-gradient(135deg, rgba(59, 42, 26, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%);">
+        <div class="section-title">
+            <h2>Galeri Batik Kami</h2>
+            <p>Koleksi foto batik premium dan proses produksi kami</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 50px;">
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); height: 300px;">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&h=400&fit=crop" alt="Gallery 1" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); height: 300px;">
+                <img src="https://images.unsplash.com/photo-1555529220-4efb60733dfd?w=400&h=400&fit=crop" alt="Gallery 2" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); height: 300px;">
+                <img src="https://images.unsplash.com/photo-1515127967-4b92b6c4625f?w=400&h=400&fit=crop" alt="Gallery 3" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); height: 300px;">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=400&fit=crop" alt="Gallery 4" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); height: 300px;">
+                <img src="https://images.unsplash.com/photo-1539533057147-91d5c8f7e0a5?w=400&h=400&fit=crop" alt="Gallery 5" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div style="border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); height: 300px;">
+                <img src="https://images.unsplash.com/photo-1549887534-7383e88a0ba2?w=400&h=400&fit=crop" alt="Gallery 6" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONI SECTION ==================== -->
+    <section>
+        <div class="section-title">
+            <h2>Testimoni Pelanggan</h2>
+            <p>Kepuasan pelanggan adalah prioritas utama kami</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Batik Nusantara adalah pilihan terbaik! Kualitas kain sangat premium dan desain sangat elegan. Saya sudah membeli 3 kali dan tidak pernah mengecewakan."</p>
+                <p class="testimonial-author">Siti Nurhaliza</p>
+                <p class="testimonial-role">Jakarta, DKI Jakarta</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Pelayanan customer service mereka luar biasa responsif. Produk sampai dengan cepat dan packaging-nya mewah. Definitely recommended untuk semua yang ingin batik berkualitas!"</p>
+                <p class="testimonial-author">Rudi Hermawan</p>
+                <p class="testimonial-role">Bandung, Jawa Barat</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Custom order saya jadi sempurna! Tim desainer mereka sangat profesional dan bisa merealisasikan visi saya dengan detail yang sempurna. Terima kasih!"</p>
+                <p class="testimonial-author">Dewi Lestari</p>
+                <p class="testimonial-role">Surabaya, Jawa Timur</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Harga memang agak premium, tapi worth it! Kualitas batik mereka setara dengan batik branded terkenal. Saya bangga memakai Batik Nusantara ke acara formal."</p>
+                <p class="testimonial-author">Ahmad Wijaya</p>
+                <p class="testimonial-role">Yogyakarta, DI Yogyakarta</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"Batik mereka cocok untuk hadiah karyawan. Packaging eksklusif dan kualitas yang bisa membuat orang yang menerima merasa dihargai. Sangat memuaskan!"</p>
+                <p class="testimonial-author">Budi Santoso</p>
+                <p class="testimonial-role">Medan, Sumatera Utara</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BLOG SECTION ==================== -->
+    <section id="blog" style="background: linear-gradient(135deg, rgba(59, 42, 26, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%);">
+        <div class="section-title">
+            <h2>Blog & Artikel</h2>
+            <p>Tips, tren fashion, dan inspirasi dari dunia batik</p>
+        </div>
+
+        <div class="articles-grid">
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./gambar_batik.png/7.jpg" alt="Article 1">
+                </div>
+                <div class="article-content">
+                    <div class="article-category">Fashion Tips</div>
+                    <h3 class="article-title">5 Cara Styling Batik Modern untuk Acara Casual</h3>
+                    <p class="article-date">12 April 2026</p>
+                    <p class="article-excerpt">Batik tidak hanya untuk acara formal! Pelajari cara styling batik modern yang cocok untuk acara casual, santai, dan trendy di era sekarang.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./gambar_batik.png/6.jpg" alt="Article 2">
+                </div>
+                <div class="article-content">
+                    <div class="article-category">Budaya</div>
+                    <h3 class="article-title">Makna Mendalam Motif Batik Kawung dan Parang</h3>
+                    <p class="article-date">10 April 2026</p>
+                    <p class="article-excerpt">Setiap motif batik memiliki filosofi dan makna mendalam. Ketahui makna dari motif-motif klasik batik Indonesia yang telah diwariskan turun-temurun.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./gambar_batik.png/4.jpg" alt="Article 3">
+                </div>
+                <div class="article-content">
+                    <div class="article-category">Tren Fashion</div>
+                    <h3 class="article-title">Batik untuk Hari Kartini: Tampil Percaya Diri & Elegan</h3>
+                    <p class="article-date">8 April 2026</p>
+                    <p class="article-excerpt">Hari Kartini adalah momen tepat untuk menunjukkan cinta pada batik. Lihat pilihan batik terbaik kami untuk perayaan Hari Kartini yang berkesan.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./gambar_batik.png/3.jpg" alt="Article 4">
+                </div>
+                <div class="article-content">
+                    <div class="article-category">Perawatan</div>
+                    <h3 class="article-title">Panduan Lengkap Merawat Batik Agar Tetap Awet</h3>
+                    <p class="article-date">5 April 2026</p>
+                    <p class="article-excerpt">Batik premium memerlukan perawatan khusus agar tetap indah dan awet. Panduan lengkap dan tips praktis merawat batik Anda dari para ahli.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./gambar_batik.png/2.jpg" alt="Article 5">
+                </div>
+                <div class="article-content">
+                    <div class="article-category">Inspiration</div>
+                    <h3 class="article-title">Kolaborasi Batik & Designer Terkenal: Tren Terbaru</h3>
+                    <p class="article-date">2 April 2026</p>
+                    <p class="article-excerpt">Batik semakin berkembang dengan kolaborasi desainer terkenal. Lihat tren terbaru dalam dunia fashion yang memadukan batik tradisional dengan konsep modern.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-image">
+                    <img src="./gambar_batik.png/1.jpg" alt="Article 6">
+                </div>
+                <div class="article-content">
+                    <div class="article-category">Proses Produksi</div>
+                    <h3 class="article-title">Behind The Scene: Proses Pembuatan Batik Tulis</h3>
+                    <p class="article-date">30 Maret 2026</p>
+                    <p class="article-excerpt">Ingin tahu bagaimana batik tulis dibuat? Ikuti perjalanan menarik dari awal hingga akhir proses pembuatan batik tulis yang memerlukan ketelitian tinggi.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LOKASI SECTION ==================== -->
+    <section id="location">
+        <div class="section-title">
+            <h2>Lokasi Toko Kami</h2>
+            <p>Kunjungi showroom kami untuk merasakan langsung kualitas batik premium</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px; align-items: start;">
+            <div>
+                <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 20px;">
+                    <h3 style="color: var(--dark-brown); margin-bottom: 20px;">📍 Showroom Utama - Jakarta</h3>
+                    <p style="color: var(--text-light); margin-bottom: 15px;"><strong>Alamat:</strong><br>Jl. Kemang Raya No. 45A<br>Jakarta Selatan, 12560</p>
+                    <p style="color: var(--text-light); margin-bottom: 15px;"><strong>Jam Operasional:</strong><br>Senin - Jumat: 10:00 - 19:00<br>Sabtu - Minggu: 10:00 - 21:00</p>
+                    <p style="color: var(--text-light); margin-bottom: 15px;"><strong>Kontak:</strong><br>📱 (021) 1234-5678<br>📧 jakarta@batiknusantara.com</p>
+                </div>
+
+                <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow);">
+                    <h3 style="color: var(--dark-brown); margin-bottom: 20px;">📍 Showroom - Yogyakarta</h3>
+                    <p style="color: var(--text-light); margin-bottom: 15px;"><strong>Alamat:</strong><br>Jl. Malioboro No. 123<br>Yogyakarta, 55271</p>
+                    <p style="color: var(--text-light); margin-bottom: 15px;"><strong>Jam Operasional:</strong><br>Setiap hari: 09:00 - 20:00</p>
+                    <p style="color: var(--text-light); margin-bottom: 15px;"><strong>Kontak:</strong><br>📱 (0274) 9876-5432<br>📧 yogya@batiknusantara.com</p>
+                </div>
+            </div>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4679999999998!2d106.8!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e1234567!2sJakarta!5e0!3m2!1sen!2sid!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== KONTAK SECTION ==================== -->
+    <section id="contact" style="background: linear-gradient(135deg, rgba(59, 42, 26, 0.03) 0%, rgba(212, 175, 55, 0.03) 100%);">
+        <div class="section-title">
+            <h2>Hubungi Kami</h2>
+            <p>Ada pertanyaan? Tim kami siap membantu Anda</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 50px;">
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nomor Telepon</label>
+                        <input type="tel" placeholder="Masukkan nomor telepon Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pesan</label>
+                        <textarea placeholder="Tulis pesan Anda di sini..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Kirim Pesan</button>
+                </form>
+            </div>
+
+            <div>
+                <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 25px;">
+                    <h3 style="color: var(--dark-brown); margin-bottom: 20px;">📞 Hubungi Kami Langsung</h3>
+                    <div style="margin-bottom: 20px;">
+                        <p style="color: var(--text-light); margin-bottom: 8px;"><strong>WhatsApp:</strong></p>
+                        <p><a href="https://wa.me/6281234567890" style="color: var(--gold); text-decoration: none; font-weight: 600;">+62 812-3456-7890</a></p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <p style="color: var(--text-light); margin-bottom: 8px;"><strong>Email:</strong></p>
+                        <p><a href="mailto:info@batiknusantara.com" style="color: var(--gold); text-decoration: none; font-weight: 600;">info@batiknusantara.com</a></p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <p style="color: var(--text-light); margin-bottom: 8px;"><strong>Customer Service:</strong></p>
+                        <p style="color: var(--text-dark); font-weight: 600;">Senin - Jumat: 08:00 - 18:00<br>Sabtu - Minggu: 09:00 - 17:00</p>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, var(--dark-brown) 0%, #4A3428 100%); padding: 30px; border-radius: 12px; color: var(--cream);">
+                    <h3 style="color: var(--gold); margin-bottom: 20px;">Ikuti Kami di Media Sosial</h3>
+                    <p style="margin-bottom: 20px;">Dapatkan update terbaru, promo eksklusif, dan konten menarik setiap hari.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" class="social-link" title="Instagram">📷</a>
+                        <a href="https://facebook.com" class="social-link" title="Facebook">f</a>
+                        <a href="https://tiktok.com" class="social-link" title="TikTok">🎵</a>
+                        <a href="https://youtube.com" class="social-link" title="YouTube">▶️</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tentang Kami</h3>
+                <p style="color: rgba(248, 241, 229, 0.7); font-size: 14px; margin-bottom: 15px;">Batik Nusantara adalah penyedia batik premium yang menghadirkan karya seni budaya Indonesia dengan kualitas terbaik dan desain modern.</p>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <span style="font-size: 14px;">⭐⭐⭐⭐⭐</span>
+                    <span style="font-size: 13px; color: rgba(248, 241, 229, 0.7);">4.9 / 5.0 (1200+ ulasan)</span>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Menu Utama</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#collections">Koleksi</a></li>
+                    <li><a href="#promo">Promo</a></li>
+                    <li><a href="#custom">Custom Order</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Informasi</h3>
+                <ul>
+                    <li><a href="#ordering">Cara Pemesanan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Return & Refund</a></li>
+                    <li><a href="#">Tracking Pesanan</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Hubungi Kami</h3>
+                <ul>
+                    <li><a href="tel:+6281234567890">📱 +62 812-3456-7890</a></li>
+                    <li><a href="mailto:info@batiknusantara.com">📧 info@batiknusantara.com</a></li>
+                    <li><a href="#">📍 Jl. Kemang Raya 45A, Jakarta</a></li>
+                    <li style="margin-top: 15px;"><strong>Jam Operasional:</strong></li>
+                    <li style="margin-top: 5px;">Senin - Jumat: 10:00 - 19:00</li>
+                    <li>Sabtu - Minggu: 10:00 - 21:00</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Batik Nusantara. Semua hak cipta dilindungi. | Dibuat dengan 💛 untuk budaya Indonesia</p>
+        </div>
+    </footer>
+
+    <!-- ==================== FLOATING WHATSAPP BUTTON ==================== -->
+    <a href="https://wa.me/6281234567890" class="whatsapp-float" title="Chat dengan kami di WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Add to Cart Button
+        document.querySelectorAll('.btn-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartBadge = document.querySelector('.cart-badge');
+                let currentCount = parseInt(cartBadge.textContent);
+                cartBadge.textContent = currentCount + 1;
+                
+                // Show feedback
+                this.textContent = '✓ Ditambahkan';
+                this.style.backgroundColor = 'var(--gold)';
+                this.style.color = 'var(--dark-brown)';
+                
+                setTimeout(() => {
+                    this.textContent = 'Keranjang';
+                    this.style.backgroundColor = 'var(--dark-brown)';
+                    this.style.color = 'white';
+                }, 1500);
+            });
+        });
+
+        // Wishlist Button
+        document.querySelectorAll('.btn-wishlist').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.color = this.style.color === 'rgb(212, 175, 55)' ? 'inherit' : 'var(--gold)';
+                this.style.borderColor = this.style.borderColor === 'rgb(212, 175, 55)' ? 'var(--border-color)' : 'var(--gold)';
+                
+                if (this.textContent === '♡') {
+                    this.textContent = '♥';
+                    const wishlistBadge = document.querySelector('.wishlist-badge');
+                    let currentCount = parseInt(wishlistBadge.textContent);
+                    wishlistBadge.textContent = currentCount + 1;
+                } else {
+                    this.textContent = '♡';
+                    const wishlistBadge = document.querySelector('.wishlist-badge');
+                    let currentCount = parseInt(wishlistBadge.textContent);
+                    if (currentCount > 0) {
+                        wishlistBadge.textContent = currentCount - 1;
+                    }
+                }
+            });
+        });
+
+        // Contact Form Submit
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah dikirim. Tim kami akan menghubungi Anda segera.');
+            this.reset();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 8px 20px rgba(59, 42, 26, 0.15)';
+            } else {
+                navbar.style.boxShadow = 'var(--shadow)';
+            }
+        });
+
+        // Add active class to nav items on scroll
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.querySelector(`a[href="#${current}"]`)) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchInput = document.querySelector('.search-bar input');
+            const query = searchInput.value;
+            if (query) {
+                alert(`Mencari produk: "${query}"\n\nFitur pencarian akan segera tersedia!`);
+                searchInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

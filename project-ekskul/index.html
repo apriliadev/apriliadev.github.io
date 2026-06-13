@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SRMA 24 KEDIRI | Website Ekstrakurikuler</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+      :root {
+      --navy: #071427;
+      --navy2: #0B1D3A;
+      --gold: #D4AF37;
+      --gold2: #f8d77a;
+      --cream: #F8F1E5;
+      --maroon: #5A0F1A;
+      --white: #ffffff;
+      --text: #0f172a;
+      --muted: #6b7280;
+
+      --shadow: 0 14px 40px rgba(0,0,0,0.10);
+      --shadow-gold: 0 15px 45px rgba(212,175,55,0.18);
+      --border: rgba(255,255,255,0.15);
+      --radius: 22px;
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, rgba(212,175,55,0.12), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(90,15,26,0.12), transparent 55%),
+                  linear-gradient(135deg, var(--cream), #fffaf2);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* LOADER */
+    .loader-screen {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, var(--navy), #020617);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: 0.6s ease;
+    }
+
+    .loader-box {
+      text-align: center;
+      color: var(--cream);
+    }
+
+    .loader-circle {
+      width: 70px;
+      height: 70px;
+      border: 4px solid rgba(255,255,255,0.15);
+      border-top: 4px solid var(--gold);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+
+    .loader-box p {
+      margin-top: 15px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+
+    /* GLOBAL */
+    .container {
+      max-width: var(--max-width);
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -1px;
+    }
+
+    .section-title h2 span {
+      color: var(--maroon);
+    }
+
+    .section-title p {
+      margin-top: 12px;
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(7, 20, 39, 0.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--cream);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--navy);
+      font-weight: 900;
+      box-shadow: var(--shadow-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 14px;
+      color: rgba(248, 241, 229, 0.85);
+      transition: 0.3s;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-btn {
+      padding: 11px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 175, 55, 0.55);
+      background: linear-gradient(135deg, rgba(212,175,55,0.25), rgba(90,15,26,0.15));
+      color: var(--gold2);
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.3s;
+      letter-spacing: 0.4px;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, rgba(212,175,55,0.35), rgba(90,15,26,0.20));
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* HERO */
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(90,15,26,0.25), transparent 60%),
+        linear-gradient(135deg, rgba(7,20,39,0.96), rgba(2,6,23,0.96)),
+        url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--cream);
+      position: relative;
+      padding-top: 95px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 58px;
+      line-height: 1.08;
+      font-weight: 900;
+      color: var(--cream);
+      letter-spacing: -1px;
+    }
+
+    .hero-text h1 span {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-text p {
+      margin-top: 20px;
+      font-size: 16px;
+      color: rgba(248,241,229,0.88);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--navy);
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: var(--shadow-gold);
+      letter-spacing: 0.3px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 55px rgba(212,175,55,0.30);
+    }
+
+    .btn-outline {
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(248,241,229,0.35);
+      background: rgba(255,255,255,0.08);
+      color: var(--cream);
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(212,175,55,0.7);
+      color: var(--gold2);
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--radius);
+      padding: 30px;
+      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      font-size: 18px;
+      color: var(--gold2);
+      margin-bottom: 14px;
+      font-weight: 900;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+      color: rgba(248,241,229,0.9);
+    }
+
+    .hero-card ul li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding-bottom: 10px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: -1px;
+    }
+
+    .about-text h2 span {
+      color: var(--maroon);
+    }
+
+    .about-text p {
+      margin-top: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .about-boxes {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .mini-box {
+      background: rgba(255,255,255,0.9);
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      transition: 0.3s ease;
+    }
+
+    .mini-box:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212,175,55,0.45);
+      box-shadow: 0 14px 35px rgba(212,175,55,0.14);
+    }
+
+    .mini-box h4 {
+      color: var(--navy);
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .mini-box p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .about-image {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.07);
+    }
+
+    /* CATEGORY */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .category-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: 0.35s ease;
+      cursor: pointer;
+    }
+
+    .category-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(212,175,55,0.55);
+      box-shadow: 0 18px 45px rgba(212,175,55,0.14);
+    }
+
+    .category-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--navy), var(--maroon));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--gold2);
+      font-weight: 900;
+      margin: auto;
+      font-size: 22px;
+      margin-bottom: 12px;
+      box-shadow: 0 12px 30px rgba(90,15,26,0.18);
+    }
+
+    .category-card h4 {
+      font-size: 15px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .category-card p {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* EXTRAS */
+    .extras-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 999px;
+      padding: 12px 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      background: transparent;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.75);
+      font-size: 13px;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: rgba(212,175,55,0.18);
+      border-color: rgba(212,175,55,0.6);
+      color: var(--navy);
+    }
+
+    .extras-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .extras-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+      transition: 0.35s ease;
+    }
+
+    .extras-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(212,175,55,0.5);
+      box-shadow: 0 20px 55px rgba(212,175,55,0.16);
+    }
+
+    .extras-card img {
+      width: 100%;
+      height: 175px;
+      object-fit: cover;
+    }
+
+    .extras-content {
+      padding: 18px;
+    }
+
+    .extras-content h4 {
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .extras-content p {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .extras-bottom {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge {
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      background: rgba(90,15,26,0.10);
+      color: var(--maroon);
+      font-weight: 900;
+    }
+
+    .btn-detail {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--navy), var(--maroon));
+      color: var(--cream);
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 12px;
+      transition: 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    .btn-detail:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--navy);
+      transform: translateY(-2px);
+    }
+
+    /* ACHIEVEMENTS */
+    .timeline {
+      max-width: 850px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      transition: 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-6px);
+      border-color: rgba(212,175,55,0.45);
+      box-shadow: 0 18px 45px rgba(212,175,55,0.14);
+    }
+
+    .timeline-left h4 {
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    .timeline-left p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .timeline-right {
+      text-align: right;
+      min-width: 140px;
+    }
+
+    .timeline-right span {
+      font-weight: 900;
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .timeline-right p {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      border-color: rgba(212,175,55,0.55);
+    }
+
+    /* FORM */
+    .form-wrapper {
+      max-width: 760px;
+      margin: auto;
+      background: rgba(255,255,255,0.96);
+      border-radius: var(--radius);
+      padding: 35px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    form .full {
+      grid-column: span 2;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.12);
+      outline: none;
+      font-size: 14px;
+      transition: 0.3s ease;
+      background: rgba(248,241,229,0.45);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(212,175,55,0.7);
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.15);
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--navy), var(--maroon));
+      color: var(--cream);
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.3s ease;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+    }
+
+    .submit-btn:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--navy);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* FOOTER */
+    footer {
+      background:
+        radial-gradient(circle at top left, rgba(212,175,55,0.18), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(90,15,26,0.18), transparent 60%),
+        linear-gradient(135deg, var(--navy), #020617);
+      color: var(--cream);
+      padding: 70px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 35px;
+    }
+
+    .footer-col h3 {
+      font-size: 18px;
+      color: var(--gold2);
+      margin-bottom: 12px;
+      font-weight: 900;
+    }
+
+    .footer-col p {
+      font-size: 13px;
+      line-height: 1.7;
+      opacity: 0.85;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(248,241,229,0.85);
+      font-size: 13px;
+      transition: 0.3s;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold2);
+    }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: var(--cream);
+      transition: 0.3s;
+      background: rgba(255,255,255,0.06);
+      font-weight: 900;
+      letter-spacing: 0.5px;
+    }
+
+    .social a:hover {
+      border-color: rgba(212,175,55,0.7);
+      color: var(--gold2);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-gold);
+    }
+
+    .copyright {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.75;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255,255,255,0.98);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0.9); opacity: 0;}
+      to { transform: scale(1); opacity: 1;}
+    }
+
+    .modal-header {
+      padding: 18px 22px;
+      background: linear-gradient(135deg, var(--navy), var(--maroon));
+      color: var(--cream);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 {
+      font-size: 18px;
+      color: var(--gold2);
+      font-weight: 900;
+    }
+
+    .close-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: var(--cream);
+      font-weight: 900;
+      transition: 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(212,175,55,0.22);
+      color: var(--gold2);
+    }
+
+    .modal-body {
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .modal-body img {
+      width: 100%;
+      border-radius: 18px;
+      height: 240px;
+      object-fit: cover;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .modal-info p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .modal-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    .modal-list div {
+      padding: 10px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      background: rgba(248,241,229,0.55);
+      font-weight: 900;
+      color: var(--navy);
+    }
+
+    /* SCROLL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media(max-width: 1050px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .extras-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-body {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media(max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .extras-grid {
+        grid-template-columns: 1fr;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      form .full {
+        grid-column: span 1;
+      }
+    }
+    /* =========================
+   MOUSE GLOW EFFECT
+========================= */
+
+.cursor-glow{
+  position: fixed;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212,175,55,0.18),
+    transparent 70%
+  );
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  mix-blend-mode: screen;
+}
+
+/* =========================
+   STAGGER CARD ANIMATION
+========================= */
+
+.extras-card,
+.category-card,
+.timeline-item,
+.gallery-grid img,
+.mini-box{
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* =========================
+   FLOATING EFFECT
+========================= */
+
+.hero-card{
+  animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating{
+  0%,100%{
+    transform: translateY(0px);
+  }
+
+  50%{
+    transform: translateY(-12px);
+  }
+}
+
+/* =========================
+   GLOW HOVER
+========================= */
+
+.extras-card::before,
+.category-card::before,
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  padding:1px;
+  background: linear-gradient(
+    135deg,
+    rgba(212,175,55,0.9),
+    rgba(255,255,255,0)
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  opacity:0;
+  transition:0.4s;
+  pointer-events: none;
+}
+
+.extras-card,
+.category-card,
+.timeline-item{
+  position:relative;
+  overflow:hidden;
+}
+
+.extras-card:hover::before,
+.category-card:hover::before,
+.timeline-item:hover::before{
+  opacity:1;
+}
+
+/* =========================
+   BUTTON SHINE EFFECT
+========================= */
+
+.btn-primary,
+.submit-btn,
+.nav-btn{
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before,
+.submit-btn::before,
+.nav-btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:80%;
+  height:100%;
+  background: rgba(255,255,255,0.35);
+  transform: skewX(-25deg);
+}
+
+.btn-primary:hover::before,
+.submit-btn:hover::before,
+.nav-btn:hover::before{
+  animation: shine 0.9s ease;
+}
+
+@keyframes shine{
+  100%{
+    left:130%;
+  }
+}
+
+/* =========================
+   GALLERY EFFECT
+========================= */
+
+.gallery-grid img:hover{
+  transform: scale(1.08) rotate(1deg);
+  filter: brightness(1.1);
+  border-color: rgba(212,175,55,0.55);
+  box-shadow: 0 20px 50px rgba(212,175,55,0.25);
+}
+/* ANIMATED PARTICLES */
+body::before,
+body::after{
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(90px);
+  z-index: -1;
+  opacity: 0.35;
+  animation: floatBg 12s ease-in-out infinite;
+}
+
+body::before{
+  background: rgba(212,175,55,0.35);
+  top: -120px;
+  left: -120px;
+}
+
+body::after{
+  background: rgba(90,15,26,0.25);
+  bottom: -120px;
+  right: -120px;
+  animation-delay: 4s;
+}
+
+@keyframes floatBg{
+  0%,100%{
+    transform: translateY(0px) translateX(0px);
+  }
+  50%{
+    transform: translateY(30px) translateX(20px);
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="loader-screen" id="loader">
+    <div class="loader-box">
+      <div class="loader-circle"></div>
+      <p>Loading SRMA Excellence...</p>
+    </div>
+  </div>
+
+  <nav id="navbar">
+    <div class="container nav-wrapper">
+      <div class="logo">
+        <div class="logo-badge">24</div>
+        <span>SRMA 24 KEDIRI</span>
+      </div>
+
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">Profil</a>
+        <a href="#kategori">Kategori</a>
+        <a href="#ekskul">Ekskul</a>
+        <a href="#prestasi">Prestasi</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#daftar">Pendaftaran</a>
+      </div>
+
+      <button class="nav-btn" onclick="document.querySelector('#daftar').scrollIntoView({behavior:'smooth'})">
+        Gabung Sekarang
+      </button>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="container hero-grid reveal">
+      <div class="hero-text">
+        <h1>SRMA 24 KEDIRI<br><span>Extracurricular Excellence</span></h1>
+        <p>
+          Wadah pengembangan karakter, prestasi, dan bakat siswa melalui ekstrakurikuler
+          profesional yang dirancang untuk menciptakan generasi unggul dan berdaya saing global.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.querySelector('#ekskul').scrollIntoView({behavior:'smooth'})">
+            Join Our Club
+          </button>
+          <button class="btn-outline" onclick="document.querySelector('#prestasi').scrollIntoView({behavior:'smooth'})">
+            View Achievements
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Highlight Program</h3>
+        <ul>
+          <li><span>Ekskul Aktif</span> <b>20+</b></li>
+          <li><span>Prestasi Nasional</span> <b>35+</b></li>
+          <li><span>Pelatih Profesional</span> <b>20+</b></li>
+          <li><span>Galeri Kegiatan</span> <b>200+</b></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <h2>Tentang <span>SRMA 24 KEDIRI</span></h2>
+        <p>
+          SRMA 24 KEDIRI adalah sekolah unggulan yang berkomitmen membentuk siswa berkarakter,
+          kreatif, disiplin, serta mampu bersaing secara akademik dan non-akademik.
+          Program ekstrakurikuler kami dirancang dengan pembinaan terstruktur, fasilitas terbaik,
+          serta pelatih profesional.
+        </p>
+
+        <div class="about-boxes">
+          <div class="mini-box">
+            <h4>Visi</h4>
+            <p>Mewujudkan siswa unggul, berprestasi, dan berakhlak mulia.</p>
+          </div>
+
+          <div class="mini-box">
+            <h4>Misi</h4>
+            <p>Mengembangkan bakat melalui kegiatan ekskul profesional dan inovatif.</p>
+          </div>
+
+          <div class="mini-box">
+            <h4>Keunggulan</h4>
+            <p>Pelatih ahli, fasilitas modern, dan pembinaan kompetitif berkelanjutan.</p>
+          </div>
+
+          <div class="mini-box">
+            <h4>Prestasi</h4>
+            <p>Puluhan penghargaan dari tingkat Kabupaten hingga Nasional.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-image reveal">
+        <img src="./gambar/68ea4a7b6b40c-sekolah-rakyat-di-kabupaten-kediri_jatim.jpg" alt="School">
+      </div>
+    </div>
+  </section>
+
+  <section id="kategori">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Kategori <span>Ekstrakurikuler</span></h2>
+        <p>
+          Pilih kegiatan terbaik sesuai bakat and minat. SRMA 24 KEDIRI menyediakan ekskul unggulan
+          dengan program pembinaan yang profesional dan terarah.
+        </p>
+      </div>
+
+      <div class="category-grid reveal">
+        <div class="category-card">
+          <div class="category-icon">🏆</div>
+          <h4>Olahraga</h4>
+          <p>Futsal, basket, voli, pencak silat, softball.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">🎭</div>
+          <h4>Seni</h4>
+          <p>Tari tradisional, batik art, band sekolah.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">📚</div>
+          <h4>Akademik</h4>
+          <p>English club, science club, coding industri, pik-r, jurnalistik, pmr.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">🕌</div>
+          <h4>Keagamaan</h4>
+          <p>Tahfidz, hadrah, rohis, qiroah.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">👑</div>
+          <h4>Organisasi</h4>
+          <p>OSIS, pramuka, mpk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ekskul">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Program <span>Ekstrakurikuler</span></h2>
+        <p>
+          Jelajahi program unggulan SRMA 24 KEDIRI. Klik detail untuk melihat jadwal, pembina,
+          tujuan program, dan prestasi yang telah diraih.
+        </p>
+      </div>
+
+      <div class="extras-toolbar reveal">
+        <div class="search-box">
+          🔍
+          <input type="text" id="searchInput" placeholder="Cari ekskul... (contoh: English Club)">
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="Olahraga">Olahraga</button>
+          <button class="filter-btn" data-filter="Seni">Seni</button>
+          <button class="filter-btn" data-filter="Akademik">Akademik</button>
+          <button class="filter-btn" data-filter="Keagamaan">Keagamaan</button>
+          <button class="filter-btn" data-filter="Organisasi">Organisasi</button>
+        </div>
+      </div>
+
+      <div class="extras-grid reveal" id="extrasGrid"></div>
+    </div>
+  </section>
+
+  <section id="prestasi">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Prestasi <span>Terbaik</span></h2>
+        <p>
+          Prestasi ekstrakurikuler adalah bukti kualitas pembinaan SRMA 24 KEDIRI.
+          Berikut beberapa pencapaian unggulan yang telah diraih siswa.
+        </p>
+      </div>
+
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <h4>Juara 1 Lomba Futsal Nasional</h4>
+            <p>Tim futsal SRMA 24 KEDIRI meraih juara pertama dalam kompetisi nasional antar pelajar.</p>
+          </div>
+          <div class="timeline-right">
+            <span>2025</span>
+            <p>Nasional</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <h4>Best Speaker English Debate</h4>
+            <p>Perwakilan English Club meraih penghargaan Best Speaker tingkat Provinsi Jawa Timur.</p>
+          </div>
+          <div class="timeline-right">
+            <span>2024</span>
+            <p>Provinsi</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <h4>Juara 2 Olimpiade Matematika</h4>
+            <p>Tim akademik SRMA 24 KEDIRI memenangkan olimpiade matematika tingkat provinsi.</p>
+          </div>
+          <div class="timeline-right">
+            <span>2024</span>
+            <p>Provinsi</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <h4>Juara 1 Tari Tradisional</h4>
+            <p>Ekskul seni tari SRMA 24 KEDIRI memenangkan lomba budaya antar sekolah.</p>
+          </div>
+          <div class="timeline-right">
+            <span>2023</span>
+            <p>Kabupaten</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeri">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Galeri <span>Kegiatan</span></h2>
+        <p>
+          Dokumentasi kegiatan ekstrakurikuler siswa SRMA 24 KEDIRI yang penuh semangat, disiplin,
+          kreativitas, dan prestasi.
+        </p>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+        <img src="./gambar/Ekstrakurikuler-pramuka.jpg" alt="gallery">
+        <img src="./gambar/234-0-dpk-ubayaacid.jpg" alt="gallery">
+        <img src="./gambar/timnas-bola-voli-putra-indonesia-menang-atas-filipina-1.jpg" alt="gallery">
+        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1400&q=80" alt="gallery">
+      </div>
+    </div>
+  </section>
+
+  <section id="daftar">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Pendaftaran <span>Online</span></h2>
+        <p>
+          Bergabunglah bersama SRMA 24 KEDIRI untuk membangun prestasi, karakter, serta pengalaman berharga.
+        </p>
+      </div>
+
+      <div class="form-wrapper reveal">
+        <form id="registerForm">
+          <div>
+            <label>Nama Lengkap</label>
+            <input type="text" required placeholder="Masukkan nama lengkap">
+          </div>
+
+          <div>
+            <label>Kelas</label>
+            <input type="text" required placeholder="Contoh: XI IPA 1">
+          </div>
+
+          <div>
+            <label>NISN</label>
+            <input type="number" required placeholder="Masukkan NISN">
+          </div>
+
+          <div>
+            <label>Pilih Ekstrakurikuler</label>
+            <select required>
+              <option value="">-- Pilih Ekskul --</option>
+              <option>Futsal Elite Team</option>
+              <option>Basket Academy</option>
+              <option>Voli Club</option>
+              <option>Softball Club</option>
+              <option>IPSI (Silat)</option>
+              <option>Kebugaran (Fitness)</option>
+              <option>Batik Art</option>
+              <option>Tari Tradisional</option>
+              <option>Band Sekolah</option>
+              <option>Jurnalistik & Media</option>
+              <option>English Club</option>
+              <option>Science Club</option>
+              <option>Coding Industri</option>
+              <option>Tahfidz Qur'an</option>
+              <option>Qiroah Club</option>
+              <option>Hadroh Seni Religi</option>
+              <option>OSIS Leadership</option>
+              <option>MPK Legislative</option>
+              <option>Pramuka Leadership</option>
+              <option>PMR (Palang Merah)</option>
+              <option>PIK-R Konseling</option>
+            </select>
+          </div>
+
+
+
+
+          <div class="full">
+            <label>Alasan Bergabung</label>
+            <textarea required placeholder="Tuliskan alasan Anda bergabung..."></textarea>
+          </div>
+
+          <div>
+            <label>No HP Siswa</label>
+            <input type="tel" required placeholder="08xxxxxxxxxx">
+          </div>
+
+          <div>
+            <label>Email Orang Tua</label>
+            <input type="email" required placeholder="contoh@gmail.com">
+          </div>
+
+          <div class="full">
+            <button class="submit-btn" type="submit">Submit Registration</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>SRMA 24 KEDIRI</h3>
+          <p>
+            Website resmi ekstrakurikuler SRMA 24 KEDIRI untuk mencetak generasi unggul,
+            disiplin, berprestasi, dan siap bersaing secara global.
+          </p>
+
+          <div class="social">
+            <a href="#">IG</a>
+            <a href="#">YT</a>
+            <a href="#">FB</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Navigasi</h3>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">Profil Sekolah</a>
+            <a href="#ekskul">Ekskul</a>
+            <a href="#prestasi">Prestasi</a>
+            <a href="#daftar">Pendaftaran</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Kontak Sekolah</h3>
+          <p>📍 Kediri, Jawa Timur</p>
+          <p>📞 (0354) 123-456</p>
+          <p>✉️ info@srma24kediri.sch.id</p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2026 SRMA 24 KEDIRI. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle">Ekskul Detail</h3>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+      </div>
+
+      <div class="modal-body">
+        <img id="modalImg" src="" alt="Ekskul">
+        <div class="modal-info">
+          <p id="modalDesc"></p>
+          <div class="modal-list">
+            <div id="modalCoach"></div>
+            <div id="modalSchedule"></div>
+            <div id="modalGoal"></div>
+            <div id="modalAchievement"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // LOADER
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("loader").style.opacity = "0";
+        document.getElementById("loader").style.pointerEvents = "none";
+      }, 1000);
+    });
+
+    // NAVBAR SCROLL EFFECT
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // REVEAL ON SCROLL
+    const reveals = document.querySelectorAll(".reveal");
+    function revealOnScroll() {
+      reveals.forEach((el) => {
+        const top = el.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (top < windowHeight - 100) {
+          el.classList.add("active");
+        }
+      });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // DATA EKSKUL (SUDAH DITAMBAHKAN SESUAI PERMINTAAN)
+    const ekskulData = [
+      {
+        name: "Futsal Elite Team",
+        category: "Olahraga",
+        desc: "Program futsal profesional dengan pelatih berpengalaman serta target kompetisi tingkat nasional.",
+        coach: "Coach: Bapak Ardi Pratama",
+        schedule: "Jadwal: Selasa & Jumat (15.30 - 17.30)",
+        goal: "Tujuan: Membentuk tim kompetitif dan disiplin",
+        achievement: "Prestasi: Juara 1 Nasional 2025",
+        img: "./gambar/5-manfaat-futsal-untuk-kesehatan-yang-jarang-diketahui.jpg"
+      },
+      {
+        name: "Basket Academy",
+        category: "Olahraga",
+        desc: "Latihan intensif basket dengan pembinaan skill, teamwork, dan strategi kompetisi modern.",
+        coach: "Coach: Ibu Dinda Sari",
+        schedule: "Jadwal: Senin & Kamis (16.00 - 18.00)",
+        goal: "Tujuan: Mengembangkan atlet basket unggulan",
+        achievement: "Prestasi: Juara 2 Provinsi 2024",
+        img: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Voli Club",
+        category: "Olahraga",
+        desc: "Pelatihan teknik dasar dan strategi bermain voli tingkat lanjut untuk turnamen antar sekolah.",
+        coach: "Coach: Bapak Setiawan",
+        schedule: "Jadwal: Rabu & Sabtu (15.30 - 17.30)",
+        goal: "Tujuan: Membangun kerjasama tim yang tangguh",
+        achievement: "Prestasi: Juara 3 Kabupaten Kediri",
+        img: "./gambar/4521kalahkan-kanada-3-1-menpora-dito-apresiasi-permainan-timnas-voli-putri-indonesia-u-21.jpg"
+      },
+      {
+        name: "Softball Club",
+        category: "Olahraga",
+        desc: "Pengembangan ketangkasan memukul, melempar, dan menangkap bola dalam olahraga softball beregu.",
+        coach: "Coach: Bapak Danang",
+        schedule: "Jadwal: Senin & Jumat (15.30 - 17.30)",
+        goal: "Tujuan: Memperkenalkan bakat olahraga taktis",
+        achievement: "Prestasi: Partisipan Kejuaraan Daerah",
+        img: "./gambar/5ef5b62dcf17e.jpg"
+      },
+      {
+        name: "IPSI (Pencak Silat)",
+        category: "Olahraga",
+        desc: "Pendidikan seni bela diri pencak silat warisan budaya dengan standar prestasi IPSI nasional.",
+        coach: "Pelatih: Kang Mas Roni",
+        schedule: "Jadwal: Selasa & Kamis (16.00 - 18.00)",
+        goal: "Tujuan: Melatih fisik, mental, dan teknik pertahanan diri",
+        achievement: "Prestasi: Emas Lomba Silat Se-Karesidenan",
+        img: "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Kebugaran (Fitness)",
+        category: "Olahraga",
+        desc: "Latihan pembentukan fisik, ketahanan kardio, dan pola hidup sehat terarah di ruang kebugaran.",
+        coach: "Instruktur: Kak Dimas",
+        schedule: "Jadwal: Rabu & Sabtu (15.00 - 17.00)",
+        goal: "Tujuan: Menjaga vitalitas dan kesehatan tubuh siswa",
+        achievement: "Prestasi: Program Kebugaran Siswa Ideal",
+        img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Batik Art",
+        category: "Seni",
+        desc: "Kelas seni kriya pembuatan batik tulis dan cap tradisional untuk melestarikan karya asli Indonesia.",
+        coach: "Pembina: Ibu Sri Wahyuni",
+        schedule: "Jadwal: Senin (15.00 - 17.00)",
+        goal: "Tujuan: Melatih ketelitian dan kreativitas seni tekstil",
+        achievement: "Prestasi: Pameran Karya Seni Batik Sekolah",
+        img: "./gambar/maxresdefault.jpg"
+      },
+      {
+        name: "Tari Tradisional",
+        category: "Seni",
+        desc: "Pelatihan tari daerah dengan koreografi profesional untuk festival budaya tingkat nasional.",
+        coach: "Pelatih: Ibu Ratna Wulandari",
+        schedule: "Jadwal: Selasa (15.00 - 17.00)",
+        goal: "Tujuan: Melestarikan budaya dan meningkatkan kreativitas",
+        achievement: "Prestasi: Juara 1 Kabupaten 2023",
+        img: "./gambar/epi.jpg"
+      },
+      {
+        name: "Band Sekolah",
+        category: "Seni",
+        desc: "Ekskul musik untuk mengembangkan kemampuan instrumen dan vokal serta tampil di event sekolah.",
+        coach: "Pelatih: Bapak Aditya Pramono",
+        schedule: "Jadwal: Kamis (15.00 - 17.00)",
+        goal: "Tujuan: Mengembangkan bakat seni musik siswa",
+        achievement: "Prestasi: Best Performance Festival Sekolah",
+        img: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Jurnalistik & Media",
+        category: "Akademik",
+        desc: "Pelatihan penulisan berita, fotografi jurnalistik, liputan majalah dinding, dan konten web sekolah.",
+        coach: "Pembina: Ibu Anita Rahma",
+        schedule: "Jadwal: Rabu (15.00 - 17.00)",
+        goal: "Tujuan: Mengasah kemampuan literasi, reportase, dan editing",
+        achievement: "Prestasi: Penerbitan Buletin Terbaik Kabupaten",
+        img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "English Club",
+        category: "Akademik",
+        desc: "Ekskul bahasa Inggris dengan program debat, public speaking, serta persiapan lomba internasional.",
+        coach: "Coach: Mr. Jonathan",
+        schedule: "Jadwal: Rabu (15.00 - 17.00)",
+        goal: "Tujuan: Meningkatkan kemampuan speaking global",
+        achievement: "Prestasi: Best Speaker Provinsi 2024",
+        img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Science Club",
+        category: "Akademik",
+        desc: "Ekskul riset sains, eksperimen laboratorium, serta olimpiade fisika dan kimia tingkat nasional.",
+        coach: "Coach: Bapak Reza Mahendra",
+        schedule: "Jadwal: Jumat (14.00 - 16.00)",
+        goal: "Tujuan: Membentuk peneliti muda berprestasi",
+        achievement: "Prestasi: Finalis Olimpiade Nasional",
+        img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Coding Industri",
+        category: "Akademik",
+        desc: "Pembelajaran pemrograman web, logika logika dasar IT, pembuatan app, hingga standarisasi tech industri.",
+        coach: "Mentor: Bapak Eko Prasetyo",
+        schedule: "Jadwal: Kamis (15.30 - 17.30)",
+        goal: "Tujuan: Mempersiapkan siswa terampil dalam digitalisasi global",
+        achievement: "Prestasi: Juara 2 Software Development Provinsi",
+        img: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Tahfidz Qur'an",
+        category: "Keagamaan",
+        desc: "Program hafalan Al-Qur'an terarah dengan pembinaan akhlak, tajwid, dan target juz tertentu.",
+        coach: "Pembina: Ustadz Ahmad Fikri",
+        schedule: "Jadwal: Senin - Kamis (06.30 - 07.30)",
+        goal: "Tujuan: Membentuk generasi Qurani",
+        achievement: "Prestasi: Juara Tahfidz Kabupaten",
+        img: "https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Qiroah Club",
+        category: "Keagamaan",
+        desc: "Seni membaca Al-Qur'an dengan lantunan lagu murottal dan mujawwad menggunakan nagham standar MTQ.",
+        coach: "Pembina: Ustadzah Khadijah",
+        schedule: "Jadwal: Jumat (13.30 - 15.30)",
+        goal: "Tujuan: Melatih keindahan vokal dan ketepatan makhraj",
+        achievement: "Prestasi: Juara MTQ Pelajar Tingkat Daerah",
+        img: "https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Hadroh Seni Religi",
+        category: "Keagamaan",
+        desc: "Ekskul seni musik rebana klasik dan modern untuk mengiringi lantunan sholawat religius islami.",
+        coach: "Pembina: Gus Umar",
+        schedule: "Jadwal: Selasa (15.30 - 17.30)",
+        goal: "Tujuan: Mengembangkan minat seni perkusi Islami",
+        achievement: "Prestasi: Penampilan Rutin Hari Besar Islam",
+        img: "./gambar/Hadrah.jpg"
+      },
+      {
+        name: "OSIS Leadership",
+        category: "Organisasi",
+        desc: "Organisasi Siswa Intra Sekolah sebagai roda penggerak kegiatan sekolah dan pembinaan karakter pemimpin.",
+        coach: "Pembina OSIS: Bapak Hartono",
+        schedule: "Jadwal: Kondisional (Rapat Rutin Rabu)",
+        goal: "Tujuan: Mengembangkan koordinasi manajemen acara dan manajerial siswa",
+        achievement: "Prestasi: Manajemen Organisasi Sekolah Teraktif",
+        img: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "MPK Legislative",
+        category: "Organisasi",
+        desc: "Majelis Perwakilan Kelas yang bertugas mengawasi kinerja OSIS, menyusun aspirasi, dan tata tertib.",
+        coach: "Pembina: Ibu Indah Lestari",
+        schedule: "Jadwal: Jumat (15.30 - 17.00)",
+        goal: "Tujuan: Melatih simulasi pengawasan legislatif hukum sekolah",
+        achievement: "Prestasi: Penyusun Amandemen Aturan Siswa Terbaik",
+        img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1400&q=80"
+      },
+      {
+        name: "Pramuka Leadership",
+        category: "Organisasi",
+        desc: "Ekskul pembinaan kepemimpinan, disiplin, survival training, dan kegiatan sosial.",
+        coach: "Pembina: Kak Fajar",
+        schedule: "Jadwal: Sabtu (08.00 - 11.00)",
+        goal: "Tujuan: Membentuk siswa berjiwa pemimpin",
+        achievement: "Prestasi: Juara Lomba Tingkat Provinsi",
+        img: "./gambar/Dasa-darma-pramuka1.jpg"
+      },
+      {
+        name: "PMR (Palang Merah)",
+        category: "Akademik",
+        desc: "Pembinaan materi pertolongan pertama, kesiapsiagaan bencana, dan kampanye kesehatan remaja.",
+        coach: "Pembina: Ibu Dr. Dian",
+        schedule: "Jadwal: Selasa (15.30 - 17.00)",
+        goal: "Tujuan: Memupuk jiwa relawan kemanusiaan yang tanggap",
+        achievement: "Prestasi: Juara Umum Jumbara PMR Kota",
+        img: "./gambar/IMG-20230719-WA0014-1024x768.jpg"    
+      },
+      {
+        name: "PIK-R Konseling",
+        category: "Akademik",
+        desc: "Pusat Informasi dan Konseling Remaja guna berbagi edukasi kesehatan reproduksi dan pendidik sebaya.",
+        coach: "Konselor: Ibu Maya, S.Psi",
+        schedule: "Jadwal: Kamis (15.30 - 17.00)",
+        goal: "Tujuan: Menjadi wadah curhat dan solusi positif remaja sekolah",
+        achievement: "Prestasi: Duta Genre Kabupaten Terpilih",
+        img: "./gambar/PIK-R.jpg"
+      }
+    ];
+
+    const extrasGrid = document.getElementById("extrasGrid");
+    const searchInput = document.getElementById("searchInput");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
+    let currentFilter = "all";
+
+    function renderEkskul() {
+      extrasGrid.innerHTML = "";
+
+      const searchValue = searchInput.value.toLowerCase();
+
+      const filtered = ekskulData.filter(item => {
+        const matchCategory = currentFilter === "all" || item.category === currentFilter;
+        const matchSearch = item.name.toLowerCase().includes(searchValue);
+        return matchCategory && matchSearch;
+      });
+
+      filtered.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "extras-card";
+        card.style.opacity = "0";
+        card.style.transform = "translateY(40px)";
+        card.style.transition = `opacity 0.7s ease ${index * 0.05}s, transform 0.7s ease ${index * 0.05}s`;
+
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <div class="extras-content">
+            <h4>${item.name}</h4>
+            <p>${item.desc}</p>
+            <div class="extras-bottom">
+              <span class="badge">${item.category}</span>
+              <button class="btn-detail">View Details</button>
+            </div>
+          </div>
+        `;
+
+        card.querySelector(".btn-detail").addEventListener("click", () => {
+          openModal(item);
+        });
+
+        extrasGrid.appendChild(card);
+        
+        if(window.staggerObserver) {
+          window.staggerObserver.observe(card);
+        }
+      });
+    }
+
+    // FILTER
+    filterButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.dataset.filter;
+        renderEkskul();
+      });
+    });
+
+    // SEARCH
+    searchInput.addEventListener("input", renderEkskul);
+
+    // MODAL
+    const modal = document.getElementById("modal");
+    function openModal(data) {
+      document.getElementById("modalTitle").textContent = data.name;
+      document.getElementById("modalImg").src = data.img;
+      document.getElementById("modalDesc").textContent = data.desc;
+      document.getElementById("modalCoach").textContent = data.coach;
+      document.getElementById("modalSchedule").textContent = data.schedule;
+      document.getElementById("modalGoal").textContent = data.goal;
+      document.getElementById("modalAchievement").textContent = data.achievement;
+
+      modal.classList.add("active");
+    }
+
+    function closeModal() {
+      modal.classList.remove("active");
+    }
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // FORM SUBMIT
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Pendaftaran berhasil dikirim ke Admin SRMA 24 KEDIRI!");
+      this.reset();
+    });
+
+    // Inisialisasi awal list Ekskul
+    renderEkskul();
+
+    // =========================
+    // CURSOR GLOW EFFECT
+    // =========================
+    const glow = document.querySelector(".cursor-glow");
+    document.addEventListener("mousemove", (e) => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+    });
+
+    // =========================
+    // STAGGER ANIMATION & OBSERVER
+    // =========================
+    const animatedCards = document.querySelectorAll(`
+      .category-card,
+      .timeline-item,
+      .gallery-grid img,
+      .mini-box
+    `);
+
+    window.staggerObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    },{
+      threshold: 0.05
+    });
+
+    animatedCards.forEach((card, index)=>{
+      card.style.transition = `opacity 0.7s ease ${index * 0.05}s, transform 0.7s ease ${index * 0.05}s`;
+      window.staggerObserver.observe(card);
+    });
+
+    document.querySelectorAll('.extras-card').forEach(card => {
+      window.staggerObserver.observe(card);
+    });
+
+  </script>
+<div class="cursor-glow"></div>
+</body>
+</html>
